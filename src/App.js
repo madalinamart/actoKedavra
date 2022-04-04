@@ -1,5 +1,7 @@
 import './App.css';
+import PropTypes from 'prop-types'
 import Actor from './components/Actor'
+
 
 function App() {
   const actor = {
@@ -14,6 +16,13 @@ function App() {
    <Actor actor={actor} />
     </div>
   );
+}
+
+App.propTypes = {
+  name: PropTypes.string,
+  score: PropTypes.number,
+  hobbies: PropTypes.string,
+  describe: PropTypes.string
 }
 
 export default App;
