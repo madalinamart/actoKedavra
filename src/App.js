@@ -1,6 +1,8 @@
 import './App.css';
 import PropTypes from 'prop-types'
 import Actor from './components/Actor'
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -13,7 +15,9 @@ function App() {
 
   return (
     <div className="App">
+    <Header />
    <Actor actor={actor} />
+   <Footer />
     </div>
   );
 }
