@@ -1,4 +1,12 @@
 .App {
   font-family: 'Poppins', sans-serif;
   color: #14142b;
+  display: grid;
+}
+
+.App .actors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 11px;
+  padding: 34px 20px;
 }
