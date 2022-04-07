@@ -3,7 +3,6 @@ import like from '../../icons/like.svg'
 import './Info.css'
 
 const Info = ({img, name, occupation, score}) => {
-    console.log(name)
   return (
     <>
     <img src={img} alt={name} />
