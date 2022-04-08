@@ -34,10 +34,10 @@ function App() {
     <div className="App">
     <Header />
     <div className='actors'>
-   {
+   {/* {
      actors.map(actor => 
       <Actor name={actor.name} occupation={actor.occupation} score={actor.score} img={actor.img} hobbies={actor.hobbies} description={actor.description} />)
-   }
+   } */}
    </div>
    <Button text='Add new actor' classStyle='primary' action={setActiveModal} />
    {activeModal && <Modal  closeModal={setActiveModal}/>}
