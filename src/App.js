@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import PropTypes from 'prop-types'
 import Actor from './components/Actor'
@@ -5,14 +6,18 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Leonardo from './images/Leonardo.svg'
 import Aniston from './images/Aniston.svg'
+import Modal from './components/Modal/Modal';
+import Button from './components/Button/Button';
 
 
 function App() {
+  const [activeModal, setActiveModal] = useState(false)
+  
   const actors = [{
     name: 'Leonardo Dicaprio',
     occupation: 'Actor & Writer',
     score: 47,
-    img: Leonardo,
+    img: Aniston,
     hobbies: 'Music and dancing naked in the rain',
     description: 'He is a good guy with a thick mustache',
   },
@@ -20,7 +25,7 @@ function App() {
   name: 'Jennifer Aniston',
   occupation: 'Actress & Director',
   score: 45,
-  img: Aniston,
+  img: Leonardo,
   hobbies: 'Music and dancing naked in the rain',
   description: 'He is a good guy with a thick mustache',
   }];
@@ -34,6 +39,9 @@ function App() {
       <Actor name={actor.name} occupation={actor.occupation} score={actor.score} img={actor.img} hobbies={actor.hobbies} description={actor.description} />)
    }
    </div>
+   <Button text='Add new actor' classStyle='primary' action={setActiveModal} />
+   {activeModal && <Modal  closeModal={setActiveModal}/>}
+   
    <Footer />
     </div>
   );

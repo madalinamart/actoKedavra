@@ -28,10 +28,13 @@
     font-size: 14px;
     line-height: 16.8px;
 }
+
+.primary img {
+    display: none;
+}
 /* HOVER AND FOCUS */
 
 .close-button {
- border: 1px solid #6e7191;
  background-color: #fff;
  width: 24px;
  height: 24px;
@@ -42,4 +45,15 @@
  top: 0px;
  left: 153px;
  cursor: pointer;
+ color: #6e7191;
+}
+
+.close-button img {
+    display: none;
+}
+
+.close-button.x {
+    position: absolute;
+    top: -35px;
+    left: 340px;
 }

@@ -1,12 +1,12 @@
 import React from 'react'
 import './Button.css'
 
-const Button = ({text, icon, classStyle}) => {   
-
-  return (
-    <button className={classStyle}>{text}
+const Button = ({text, classStyle , icon, action}) => {   
+  return (   
+    <button onClick={action}
+     className={classStyle}>{text}
     <img src={icon} alt='edit icon' />
-    </button>
+    </button>   
   )
 }
 

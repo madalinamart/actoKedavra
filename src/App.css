@@ -1,6 +1,7 @@
 .App {
   font-family: 'Poppins', sans-serif;
   color: #14142b;
+  position: relative;
 }
 
 .App .actors {
