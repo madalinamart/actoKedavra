@@ -2,11 +2,11 @@
   font-family: 'Poppins', sans-serif;
   color: #14142b;
   position: relative;
+  padding: 34px 20px;
 }
 
 .App .actors {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(162px, 1fr));
   grid-gap: 11px;
-  padding: 34px 20px;
 }
