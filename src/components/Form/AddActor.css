@@ -1,0 +1,78 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+label {
+  color: #4e4b66;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  margin-bottom: 16px;
+}
+
+input {
+  border-radius: 10px;
+  background-color: #eff0f6;
+  padding: 16px;
+  color: #14142b;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+p {
+    text-align: center;
+}
+
+.error {
+  border: 2px solid #ed2e7e;
+  background-color: #ffe5f2;
+}
+
+textarea {
+  border-radius: 10px;
+  background-color: #eff0f6;
+  padding: 16px;
+  color: #14142b;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 400;
+  max-width: 100%;
+}
+
+.textarea {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+#remaining {
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 13px;
+  position: absolute;
+  bottom: 14px;
+  left: 16px;
+}
+
+button {
+  margin: auto;
+}
+
+.message {
+  position: static;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 22px;
+  letter-spacing: 0.25px;
+  color: #98014c;
+  margin-top: 8px;
+}
