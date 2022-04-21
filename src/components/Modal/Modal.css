@@ -2,12 +2,11 @@
     background-color: #fff;
     padding: 56px 20px 32px 20px;
     width: 100vw;
-    height: 100vh;
     position: fixed;
-    top: 0;
-    bottom: 0;
     left: 0;
     right: 0; 
+    box-shadow: 0px -4px 8px rgba(0,0,0,0.1);
+    border-radius: 24px 24px 0px 0px;
 }
 
 .modal-wrapper .modal-container {

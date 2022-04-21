@@ -1,0 +1,10 @@
+.sort img:last-child{
+    transform: rotate(180deg);
+}
+
+.sort {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

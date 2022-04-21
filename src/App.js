@@ -13,10 +13,11 @@ import success from './icons/success.svg'
 import warning from './icons/warning.svg'
 import danger from './icons/danger.svg'
 import NoActors from './components/NoMoreActors/NoActors';
+import Sort from './components/Sort/Sort';
 
 
 function App() {
-  const [activeModal, setActiveModal] = useState(false)
+  const [activeSort, setActiveSort] = useState(false)
   const [activeAlert, setActiveAlert] = useState(true)
 
   const actors = [{
@@ -66,7 +67,11 @@ function App() {
 
   return (
     <div className="App">
-<NoActors displayModal={setActiveModal} activeModal={activeModal} />
+<div className='actions'>
+  <Button classStyle='primary' text='Sort' action={setActiveSort} />
+  {activeSort && <Modal title='Select type of sort' positioning='0' component={<Sort />} closeModal={setActiveSort} />}
+  <Button classStyle='primary' text='Select' /> 
+</div>
     </div>
   );
 }
