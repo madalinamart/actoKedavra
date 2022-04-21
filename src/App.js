@@ -12,6 +12,7 @@ import Alert from './components/Alert/Alert';
 import success from './icons/success.svg'
 import warning from './icons/warning.svg'
 import danger from './icons/danger.svg'
+import NoActors from './components/NoMoreActors/NoActors';
 
 
 function App() {
@@ -65,18 +66,7 @@ function App() {
 
   return (
     <div className="App">
-    {activeAlert && <Alert alertList={alertList} closeAlert={setActiveAlert}/> }
-    <Header />
-    <div className='actors'>
-   {
-     actors.map(actor => 
-      <Actor key={actor.name} name={actor.name} occupation={actor.occupation} score={actor.score} img={actor.img} hobbies={actor.hobbies} description={actor.description} />)
-   }
-   </div>
-   <Button text='Add new actor' classStyle='primary' action={setActiveModal} />
-   {activeModal && <Modal  closeModal={setActiveModal}/>}
-   
-   <Footer />
+<NoActors displayModal={setActiveModal} activeModal={activeModal} />
     </div>
   );
 }
