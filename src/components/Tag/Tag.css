@@ -1,0 +1,14 @@
+.hobby {
+    background-color: #e5ebfe;
+    padding: 5px 8px;
+    border-radius: 8px;
+    color: #032596;
+    font-weight: 500;
+    font-size: 9px;
+    line-height: 10.8px;
+    text-align: center;
+    margin: 4px;
+    flex: none;
+    flex-grow: 0;
+    order: 0;
+}

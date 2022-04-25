@@ -1,9 +1,14 @@
 import React from 'react'
+import Tag from '../Tag/Tag'
+import './Hobbies.css'
 
 const Hobbies = ({hobbies}) => {
   return (
     <div className='hobbies'>
-      <p>{hobbies}</p>
+      {
+        hobbies.map(hobby => 
+          <Tag tag={hobby} />)
+      }
     </div>
   )
 }

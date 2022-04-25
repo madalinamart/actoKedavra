@@ -27,7 +27,7 @@ function App() {
       occupation: "Actor & Writer",
       score: 47,
       img: Aniston,
-      hobbies: "Music and dancing naked in the rain",
+      hobbies: ["Dominoes", "Mini Golf", "Table Tennis"],
       description: "He is a good guy with a thick mustache",
     },
     {
@@ -35,7 +35,7 @@ function App() {
       occupation: "Actress & Director",
       score: 45,
       img: Leonardo,
-      hobbies: "Music and dancing naked in the rain",
+      hobbies:["Dancing", "Modelling","Travelling","Blogging"],
       description: "He is a good guy with a thick mustache",
     },
   ];
@@ -69,11 +69,17 @@ function App() {
 
   return (
     <div className="App">
-{/*       <div className='actions'>
+      <div className='actions'>
   <Button classStyle='primary' text='Sort' action={setActiveSort} />
   {activeSort && <Modal title='Select type of sort' bottom='0' component={<Sort />} closeModal={setActiveSort} />}
   <Button classStyle='primary' text='Select' /> 
-</div> */}
+</div>
+<div className="actors">
+  {
+    actors.map(actor => 
+      <Actor img={actor.img} name={actor.name} occupation={actor.occupation} score={actor.score} hobbies={actor.hobbies} description={actor.description} /> )
+  }
+</div>
       <Button
         classStyle="primary"
         text="Add new actor"
