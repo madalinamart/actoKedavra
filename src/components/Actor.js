@@ -14,7 +14,7 @@ const Actor = ({img, name, occupation, score, hobbies, description}) => {
       <Info img={img} name={name} occupation={occupation} score={score} />
       <Button text='X' classStyle='close-button' />
       <Hobbies hobbies={hobbies} />
-      <Description description={description} />
+      <Description description={description} readMore='Read more' readLess='Read Less'/>
       <Button text='Edit' classStyle='secondary' icon={edit}/>
     </div>   
   );
