@@ -35,7 +35,7 @@ function App() {
       occupation: "Actress & Director",
       score: 45,
       img: Leonardo,
-      hobbies:["Dancing", "Modelling","Travelling","Blogging"],
+      hobbies: ["Dancing", "Modelling", "Travelling", "Blogging"],
       description: "He is a good guy with a thick mustache",
     },
   ];
@@ -69,17 +69,31 @@ function App() {
 
   return (
     <div className="App">
-      <div className='actions'>
-  <Button classStyle='primary' text='Sort' action={setActiveSort} />
-  {activeSort && <Modal title='Select type of sort' bottom='0' component={<Sort />} closeModal={setActiveSort} />}
-  <Button classStyle='primary' text='Select' /> 
-</div>
-<div className="actors">
-  {
-    actors.map(actor => 
-      <Actor img={actor.img} name={actor.name} occupation={actor.occupation} score={actor.score} hobbies={actor.hobbies} description={actor.description} /> )
-  }
-</div>
+      <div className="actions">
+        <Button classStyle="primary" text="Sort" action={setActiveSort} />
+        {activeSort && (
+          <Modal
+            title="Select type of sort"
+            bottom="0"
+            component={<Sort />}
+            closeModal={setActiveSort}
+          />
+        )}
+        <Button classStyle="primary" text="Select" />
+      </div>
+      <div className="actors">
+        {actors.map((actor) => (
+          <Actor
+            key={actor.name}
+            img={actor.img}
+            name={actor.name}
+            occupation={actor.occupation}
+            score={actor.score}
+            hobbies={actor.hobbies}
+            description={actor.description}
+          />
+        ))}
+      </div>
       <Button
         classStyle="primary"
         text="Add new actor"
@@ -89,8 +103,8 @@ function App() {
       />
       {activeForm && (
         <Modal
-          bottom='0'
-          top= '0'
+          bottom="0"
+          top="0"
           title="Add new actor"
           component={<AddActor closeModal={setActiveForm} />}
           closeModal={setActiveForm}

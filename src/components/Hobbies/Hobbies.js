@@ -1,16 +1,15 @@
-import React from 'react'
-import Tag from '../Tag/Tag'
-import './Hobbies.css'
+import React from "react";
+import Tag from "../Tag/Tag";
+import "./Hobbies.css";
 
-const Hobbies = ({hobbies}) => {
+const Hobbies = ({ hobbies }) => {
   return (
-    <div className='hobbies'>
-      {
-        hobbies.map(hobby => 
-          <Tag tag={hobby} />)
-      }
+    <div className="hobbies">
+      {hobbies.map((hobby) => (
+        <Tag key={hobby} tag={hobby} />
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Hobbies
+export default Hobbies;
