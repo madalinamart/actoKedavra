@@ -4,10 +4,35 @@
   position: relative;
   padding: 34px 20px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
 }
+
+.App .actions {
+  width: 100%;
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
+}
+
+
+.App .actions button {
+  color: #14142b;
+  background-color: #eee5fe;
+  border: 1px solid #6308f7;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16.8px;
+  text-align: center;
+  cursor: pointer;
+}
+
 
 .App .actors {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(162px, 1fr));
   grid-gap: 11px;
+  margin: 32px 0;
 }

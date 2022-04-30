@@ -5,7 +5,7 @@ import './Info.css'
 const Info = ({img, name, occupation, score}) => {
   return (
     <>
-    <img src={img} alt={name} />
+    <img className='profile-img' src={img} alt={name} />
     <div className='info'>        
         <h2>{name}</h2>
         <div className='occupation-likes'>

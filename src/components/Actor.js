@@ -1,4 +1,3 @@
-import React from 'react';
 import Button from './Button/Button';
 import edit from '../icons/edit.svg'
 import Info from './Info/Info';
@@ -12,10 +11,10 @@ const Actor = ({img, name, occupation, score, hobbies, description}) => {
   return (
     <div className='actor'>
       <Info img={img} name={name} occupation={occupation} score={score} />
-      <Button text='X' classStyle='close-button' />
+      <div className='close'><Button text='X'/></div>
       <Hobbies hobbies={hobbies} />
       <Description description={description} readMore='Read more' readLess='Read Less'/>
-      <Button text='Edit' classStyle='secondary' icon={edit}/>
+      <Button text='Edit' variant='secondary' icon={edit}/>
     </div>   
   );
 };

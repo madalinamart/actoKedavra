@@ -1,7 +1,6 @@
-.secondary {
-    border: 1px solid #6308f7;
+/* .secondary {
+    border: 1px solid;
     border-radius: 8px;
-    padding: 8px 54px;
     cursor: pointer;
     color: #6308f7;
     font-size: 10px;
@@ -19,26 +18,11 @@
 .secondary:focus {
     border: 1px solid #eee5fe;
 }
+ */
 
-.primary {
-    border: 1px solid #6308f7;
-    border-radius: 10px;
-    background-color: #eee5fe;
-    padding: 10px 66px;
-    color: #14142b;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 16.8px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.primary img {
-    display: none;
-}
 /* HOVER AND FOCUS */
 
-.close-button {
+/* .close-button {
  width: 24px;
  height: 24px;
  border-radius: 30px;
@@ -65,4 +49,69 @@
     position: static;  
     box-shadow: none;
     font-weight: 600;
+} */
+
+button {
+    width: 100%;
+    padding: 12px 22px;
+    border-radius: 8px;
+    border: 1px solid ;
+    border-color: #6308f7;
+    text-align: center;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 0.25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+button.primary {       
+    background-color: #6308f7;       
+    color: #fcfcfc;    
+}
+
+button.primary:hover:not(:disabled) {
+    background-color: #3c0594; 
+}
+
+button.primary:active:not(:disabled) {
+    background-color: #14142b;
+}
+
+button.primary:focus {
+    background-color: #6308f7;
+    border: 8px solid #eee5fe;
+}
+
+button.primary:disabled {
+    background-color: #6308f7;
+    opacity: 50%;
+}
+
+button.secondary {
+    background-color: #fff;
+    color: #6308f7;
+}
+
+button.secondary:hover:not(:disabled) {
+    border-color: #3c0594; 
+    color: #3c0594;
+}
+
+button.secondary:active:not(:disabled) {
+    border-color: #14142b;
+    color: #14142b;
+}
+
+button.secondary:focus {
+    border: 8px solid #eee5fe;
+}
+
+button.secondary:disabled {
+    background-color: #6308f7;
+    opacity: 50%;
 }

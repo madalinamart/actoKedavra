@@ -1,6 +1,17 @@
+.profile-img {
+    width: 162px;
+    height: 173px;
+    object-fit: cover;
+    object-position: center;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    margin: 0 auto 10px;
+}
+
 .info {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .info h2 {

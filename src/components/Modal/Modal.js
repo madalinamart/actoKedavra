@@ -6,7 +6,7 @@ const Modal = ({closeModal, title, component, bottom, top}) => {
   return (
     <div className='modal-wrapper' style={{bottom: bottom, top: top}}>
         <div className='modal-container'>
-            <Button text='X' classStyle='close-button x' action={() => closeModal(false)} />
+            <div className='close'><Button text='X' action={() => closeModal(false)} /></div>
             <h1>{title}</h1>
             <div className='body'>{component}</div>
         </div>

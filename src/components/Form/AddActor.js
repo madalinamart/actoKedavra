@@ -1,13 +1,13 @@
-import { useState } from "react";
-import "./AddActor.css";
-import Button from "../Button/Button";
+import { useState } from 'react';
+import './AddActor.css';
+import Button from '../Button/Button';
 
 const AddActor = ({ closeModal }) => {
   const [values, setValues] = useState({
-    name: "",
-    occupation: "",
-    hobbies: "",
-    description: "",
+    name: '',
+    occupation: '',
+    hobbies: '',
+    description: '',
   });
 
   const [char, setChar] = useState(0);
@@ -43,71 +43,66 @@ const AddActor = ({ closeModal }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="inputs">
-        <label htmlFor="name">Name</label>
+      <div className='inputs'>
+        <label htmlFor='name'>Name</label>
         <input
-          type="text"
-          name="name"
+          type='text'
+          name='name'
           value={values.name}
           onChange={handleName}
-          className={isSubmitted && !values.name ? "error" : null}
+          className={isSubmitted && !values.name ? 'error' : null}
         />
         {isSubmitted && !values.name ? (
-          <span className="message">Field required</span>
+          <span className='message'>Field required</span>
         ) : null}
       </div>
 
-      <div className="inputs">
-        <label htmlFor="occupation">Occupation besides acting</label>
+      <div className='inputs'>
+        <label htmlFor='occupation'>Occupation besides acting</label>
         <input
-          type="text"
-          name="occupation"
+          type='text'
+          name='occupation'
           value={values.occupation}
           onChange={handleOccupation}
-          className={isSubmitted && !values.occupation ? "error" : null}
+          className={isSubmitted && !values.occupation ? 'error' : null}
         />
         {isSubmitted && !values.occupation ? (
-          <span className="message">Field required</span>
+          <span className='message'>Field required</span>
         ) : null}
       </div>
 
-      <div className="inputs">
-        <label htmlFor="hobbies">Hobbies</label>
+      <div className='inputs'>
+        <label htmlFor='hobbies'>Hobbies</label>
         <input
-          type="text"
-          name="hobbies"
+          type='text'
+          name='hobbies'
           value={values.hobbies}
           onChange={handleHobbies}
-          className={isSubmitted && !values.hobbies ? "error" : null}
+          className={isSubmitted && !values.hobbies ? 'error' : null}
         />
         {isSubmitted && !values.hobbies ? (
-          <span className="message">Field required</span>
+          <span className='message'>Field required</span>
         ) : null}
       </div>
 
-      <div className="textarea">
-        <label htmlFor="description">Description</label>
+      <div className='textarea'>
+        <label htmlFor='description'>Description</label>
         <textarea
-          name="description"
+          name='description'
           value={values.description}
           onChange={handleDescription}
-          rows="5"
-          cols="50"
+          rows='5'
+          cols='50'
           disabled={isDisabled}
-          className={isSubmitted && !values.description ? "error" : null}
+          className={isSubmitted && !values.description ? 'error' : null}
         ></textarea>
-        <span id="remaining">{remainingWords} characters remaining</span>
+        <span id='remaining'>{remainingWords} characters remaining</span>
         {isSubmitted && !values.description ? (
-          <span className="message">Field required</span>
+          <span className='message'>Field required</span>
         ) : null}
       </div>
 
-      <Button
-        text="Add new actor"
-        classStyle="primary"
-        color="#fff"
-        backgroundColor="#6308F7"
-      />
+      <Button text='Add new actor' variant='primary' />
       <p onClick={() => closeModal(false)}> I changed my mind</p>
     </form>
   );

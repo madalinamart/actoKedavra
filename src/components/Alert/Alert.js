@@ -17,7 +17,7 @@ const Alert = ({alertList, closeAlert}) => {
         <div key={a.id} className='notification-container' style={{backgroundColor: a.backgroundColor, color: a.color}}>
           <div className='notification'>
           <div className='notification-img'>
-            <img src={a.icon} alt='' />
+            <img src={a.icon} alt='icon' />
           </div>
           <div>
             <p className='notification-message'>
