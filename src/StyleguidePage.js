@@ -30,6 +30,10 @@ const StyleguidePage = () => {
       .then((data) => setActors(data));
   };
 
+  const deleteActor = (name) => {
+    setActors((actors) => actors.filter((actor) => actor.name !== name))
+  }
+
   const alertList = [
     {
       id: 1,
@@ -62,7 +66,7 @@ const StyleguidePage = () => {
     <div className='App'>
       
       <div className='actions'>
-        <Button variant='secondary' text='Sort' action={setActiveSort} color='#14142b' backgroundColor='#eee5fe'/>
+        <Button variant='secondary' text='Sort' padding='10px 66px' action={setActiveSort} color='#14142b' backgroundColor='#eee5fe'/>
         {activeSort && (
           <Modal
             title='Select type of sort'
@@ -86,6 +90,7 @@ const StyleguidePage = () => {
               score={actor.score}
               hobbies={actor.hobbies}
               description={actor.description}
+              deleteActor= {deleteActor}
             />
           ))}
         </div>
@@ -93,6 +98,7 @@ const StyleguidePage = () => {
       <Button
         variant='primary'
         text='Add new actor'
+        padding='16px 106px'
         action={setActiveForm}
       />
       {activeForm && (

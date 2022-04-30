@@ -97,10 +97,11 @@ const AddActor = ({ closeModal }) => {
           className={isSubmitted && !values.description ? 'error' : null}
         ></textarea>
         <span id='remaining'>{remainingWords} characters remaining</span>
+        </div>
         {isSubmitted && !values.description ? (
           <span className='message'>Field required</span>
         ) : null}
-      </div>
+      
 
       <Button text='Add new actor' variant='primary' />
       <p onClick={() => closeModal(false)}> I changed my mind</p>

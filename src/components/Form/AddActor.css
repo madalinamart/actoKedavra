@@ -50,8 +50,7 @@ textarea {
 
 .textarea {
   display: flex;
-  flex-direction: column;
-  margin-bottom: 24px;
+  flex-direction: column;  
   position: relative;
 }
 
@@ -60,7 +59,7 @@ textarea {
   font-size: 10px;
   line-height: 13px;
   position: absolute;
-  bottom: 14px;
+  bottom: 30px;
   left: 16px;
 }
 

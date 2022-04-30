@@ -7,14 +7,14 @@ import './Actor.css'
 
 
 
-const Actor = ({img, name, occupation, score, hobbies, description}) => {
+const Actor = ({img, name, occupation, score, hobbies, description, deleteActor}) => {
   return (
     <div className='actor'>
       <Info img={img} name={name} occupation={occupation} score={score} />
-      <div className='close'><Button text='X'/></div>
+      <div className='close'><Button text='X' action={() => deleteActor(name)}/></div>
       <Hobbies hobbies={hobbies} />
       <Description description={description} readMore='Read more' readLess='Read Less'/>
-      <Button text='Edit' variant='secondary' icon={edit}/>
+      <Button text='Edit' variant='secondary' padding='8px' icon={edit} />
     </div>   
   );
 };
