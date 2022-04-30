@@ -1,0 +1,26 @@
+[
+    {
+      "name": "Leonardo DiCaprio",
+      "picture": "https://www.tvblog.ro/wp-content/uploads/2019/01/Leonardo-DiCaprio.jpg",
+      "occupation": "Actor & Writer",
+      "score": 47,
+      "hobbies": ["Travelling", "Reading", "Crossword puzzles"],
+      "description": "It's easy to believe Leonardo DiCaprio really is the 'king of Hollywood'. He has been a brilliant actor since he was a small child and he continues to prove himself as an actor even to this day."
+    },
+    {
+      "name": "Morgan Freeman",
+      "picture": "https://m.media-amazon.com/images/M/MV5BMTc0MDMyMzI2OF5BMl5BanBnXkFtZTcwMzM2OTk1MQ@@._V1_UY1200_CR85,0,630,1200_AL_.jpg",
+      "occupation": "Actor & Producer",
+      "score": 62,
+      "hobbies": ["Dominoes", "Mini Golf", "Table Tennis"],
+      "description": "With an authoritative voice and calm demeanor, this ever popular American actor has grown into one of the most respected figures in modern US cinema."
+    },
+    {
+      "name": "Angelina Jolie",
+      "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Angelina_Jolie_2_June_2014_%28cropped%29.jpg/640px-Angelina_Jolie_2_June_2014_%28cropped%29.jpg",
+      "occupation": "Actress & Producer",
+      "score": 58,
+      "hobbies": ["Dancing", "Modeling", "Travelling", "Blogging"],
+      "description": "Angelina Jolie is an Academy Award-winning actress who rose to fame after her role in Tinerete furata (1999), playing the title role in the 'Lara Croft' blockbuster movies, as well as Domnul si doamna Smith (2005), Wanted (2008), Salt (2010) and Maleficent (2014)."
+    }
+  ]

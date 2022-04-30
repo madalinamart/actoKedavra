@@ -3,6 +3,7 @@
   color: #14142b;
   position: relative;
   padding: 34px 20px;
+  display: flex;
 }
 
 .App .actors {
