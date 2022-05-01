@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import data from './actors.json';
 import PropTypes from 'prop-types';
 import Actor from './components/Actor';
 import Header from './components/Header/Header';
@@ -13,26 +14,35 @@ import danger from './icons/danger.svg';
 import NoActors from './components/NoMoreActors/NoActors';
 import Sort from './components/Sort/Sort';
 import AddActor from './components/Form/AddActor';
+import Select from './components/Select/Select';
 
 const StyleguidePage = () => {
   const [activeSort, setActiveSort] = useState(false);
+  const [activeSelect, setActiveSelect] = useState(false);
   const [activeForm, setActiveForm] = useState(false);
+  const [editForm, setEditForm] = useState(false);
   const [activeAlert, setActiveAlert] = useState(true);
   const [actors, setActors] = useState([]);
+  const [showCheckbox, setShowCheckbox] = useState(false);
 
   useEffect(() => {
-    fetchData();
+    setActors(data);
   }, []);
 
-  const fetchData = () => {
-    fetch('actors.json')
-      .then((response) => response.json())
-      .then((data) => setActors(data));
+  const deleteActor = (name) => {
+    setActors((actors) => actors.filter((actor) => actor.name !== name));
   };
 
-  const deleteActor = (name) => {
-    setActors((actors) => actors.filter((actor) => actor.name !== name))
+  //EDIT ACTOR
+  /*   const editActor = (name) => {
+    actors.map(actor => { 
+      if(actor.name === name) {        
+      } else {
+        return 'no actor with this name'
+      }
+    })
   }
+   */
 
   const alertList = [
     {
@@ -62,57 +72,75 @@ const StyleguidePage = () => {
   ];
   return (
     <>
-    <Header />
-    <div className='App'>
-      
-      <div className='actions'>
-        <Button variant='secondary' text='Sort' padding='10px 66px' action={setActiveSort} color='#14142b' backgroundColor='#eee5fe'/>
-        {activeSort && (
+      <Header />
+      <div className='App'>
+        <div className='actions'>
+          <Button
+            variant='secondary'
+            text='Sort'
+            padding='10px 66px'
+            action={setActiveSort}
+            color='#14142b'
+            backgroundColor='#eee5fe'
+          />
+          {activeSort && (
+            <Modal
+              title='Select type of sort'
+              bottom='0'
+              component={<Sort />}
+              closeModal={setActiveSort}
+            />
+          )}
+          <Button
+            variant= 'secondary'
+            text='Select'
+            padding='10px 66px'
+            action= {setActiveSelect}
+            color='#14142b'
+            backgroundColor='#eee5fe'
+          />
+          {activeSelect && (
+            <Modal
+              title='Select'
+              bottom='0'
+              component={<Select />}
+              closeModal={setActiveSelect}
+            />
+          )}
+        </div>
+        {!actors.length ? (
+          <NoActors />
+        ) : (
+          <div className='actors'>
+            {actors.map((actor) => (
+              <Actor
+                key={actor.name}
+                actor={actor}
+                deleteActor={deleteActor}
+                activeForm={editForm}
+                openForm={setEditForm}
+                actors={actors}
+              />
+            ))}
+          </div>
+        )}
+        <Button
+          variant='primary'
+          text='Add new actor'
+          padding='16px 106px'
+          action={setActiveForm}
+        />
+        {activeForm && (
           <Modal
-            title='Select type of sort'
             bottom='0'
-            component={<Sort />}
-            closeModal={setActiveSort}
+            top='0'
+            title='Add new actor'
+            component={<AddActor closeModal={setActiveForm} />}
+            closeModal={setActiveForm}
           />
         )}
-        <Button classStyle='primary' text='Select' />
       </div>
-      {!actors.length ? (
-        <NoActors />
-      ) : (
-        <div className='actors'>
-          {actors.map((actor) => (
-            <Actor
-              key={actor.name}
-              img={actor.picture}
-              name={actor.name}
-              occupation={actor.occupation}
-              score={actor.score}
-              hobbies={actor.hobbies}
-              description={actor.description}
-              deleteActor= {deleteActor}
-            />
-          ))}
-        </div>
-      )}
-      <Button
-        variant='primary'
-        text='Add new actor'
-        padding='16px 106px'
-        action={setActiveForm}
-      />
-      {activeForm && (
-        <Modal
-          bottom='0'
-          top='0'
-          title='Add new actor'
-          component={<AddActor closeModal={setActiveForm} />}
-          closeModal={setActiveForm}
-        />
-      )}
-      
-    </div>
-    <Footer />
+      <Footer />
     </>
   );
 };

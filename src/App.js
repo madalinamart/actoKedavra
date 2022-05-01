@@ -6,6 +6,7 @@ const App = () => {
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<StyleguidePage />} />
+      <Route path='/:name' element={<StyleguidePage />} />
     </Routes>
     </BrowserRouter>
   )

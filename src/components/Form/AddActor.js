@@ -1,18 +1,36 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import './AddActor.css';
 import Button from '../Button/Button';
 
-const AddActor = ({ closeModal }) => {
-  const [values, setValues] = useState({
-    name: '',
-    occupation: '',
-    hobbies: '',
-    description: '',
-  });
+const initialValues = {
+  name: '',
+  occupation: '',
+  hobbies: '',
+  description: '',
+};
 
+const AddActor = ({ closeModal, actors}) => {
+  const [values, setValues] = useState(initialValues);
   const [char, setChar] = useState(0);
   const [isDisabled, setIsDisabled] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { name } = useParams();
+
+  useEffect(() => {
+    fetchActor(name);
+  }, []);
+
+  const fetchActor = (name) => {
+    try {
+      const filteredActor = actors.filter((actor) => actor.name === name);
+      filteredActor.map((actor) => setValues(actor));
+    } catch (error) {
+      console.log('error while fetching actor', error);
+    }
+  };
+
+ 
 
   const remainingWords = 500 - char;
 
@@ -97,11 +115,10 @@ const AddActor = ({ closeModal }) => {
           className={isSubmitted && !values.description ? 'error' : null}
         ></textarea>
         <span id='remaining'>{remainingWords} characters remaining</span>
-        </div>
-        {isSubmitted && !values.description ? (
-          <span className='message'>Field required</span>
-        ) : null}
-      
+      </div>
+      {isSubmitted && !values.description ? (
+        <span className='message'>Field required</span>
+      ) : null}
 
       <Button text='Add new actor' variant='primary' />
       <p onClick={() => closeModal(false)}> I changed my mind</p>
