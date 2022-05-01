@@ -24,6 +24,9 @@ const StyleguidePage = () => {
   const [activeAlert, setActiveAlert] = useState(true);
   const [actors, setActors] = useState([]);
   const [showCheckbox, setShowCheckbox] = useState(false);
+  const [checkAll, setCheckAll] = useState(false)
+  const [isChecked, setIsChecked] = useState([])
+
 
   useEffect(() => {
     setActors(data);
@@ -43,6 +46,17 @@ const StyleguidePage = () => {
     })
   }
    */
+
+  const handleCheck = (e) => {
+    setIsChecked(e.target.checked)
+  }
+  
+
+  
+  const manageSelect = () => {
+    setActiveSelect(!activeSelect)
+    setShowCheckbox(!showCheckbox)
+  }
 
   const alertList = [
     {
@@ -95,7 +109,7 @@ const StyleguidePage = () => {
             variant= 'secondary'
             text='Select'
             padding='10px 66px'
-            action= {setActiveSelect}
+            action= {manageSelect}
             color='#14142b'
             backgroundColor='#eee5fe'
           />
@@ -103,8 +117,8 @@ const StyleguidePage = () => {
             <Modal
               title='Select'
               bottom='0'
-              component={<Select />}
-              closeModal={setActiveSelect}
+              component={<Select showCheckbox={showCheckbox} checked={checkAll} handleCheck={handleCheck}/>}
+              closeModal={manageSelect}
             />
           )}
         </div>
@@ -114,6 +128,9 @@ const StyleguidePage = () => {
           <div className='actors'>
             {actors.map((actor) => (
               <Actor
+              isChecked={isChecked}
+              handleCheck={handleCheck}
+              showCheckbox={showCheckbox}
                 key={actor.name}
                 actor={actor}
                 deleteActor={deleteActor}
