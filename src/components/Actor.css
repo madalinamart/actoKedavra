@@ -30,20 +30,20 @@
     cursor: pointer;
 }
 
-.actor-checkbox {
+.actor .actor-checkbox {
     position: absolute;
     top: 10px;
     left: 165px;
     z-index: 100;
 }
 
-.actor-checkbox .checkbox {
+.actor .actor-checkbox .checkbox {
     height: 40px;
     width: 40px;
     border: 8px solid #eff0f6;
 }
 
-.actor-checkbox .checkbox-container .checkbox:after {
+.actor .actor-checkbox .checkbox-container .checkbox:after {
   left: 8px;
   top: 1px;
 }

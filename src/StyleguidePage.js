@@ -24,8 +24,8 @@ const StyleguidePage = () => {
   const [activeAlert, setActiveAlert] = useState(true);
   const [actors, setActors] = useState([]);
   const [showCheckbox, setShowCheckbox] = useState(false);
-  const [checkAll, setCheckAll] = useState(false)
-  const [isChecked, setIsChecked] = useState([])
+  const [selected, setSelected] = useState([])
+
 
 
   useEffect(() => {
@@ -47,16 +47,10 @@ const StyleguidePage = () => {
   }
    */
 
-  const handleCheck = (e) => {
-    setIsChecked(e.target.checked)
-  }
-  
-
-  
   const manageSelect = () => {
-    setActiveSelect(!activeSelect)
-    setShowCheckbox(!showCheckbox)
-  }
+    setActiveSelect(!activeSelect);
+    setShowCheckbox(!showCheckbox);
+  };
 
   const alertList = [
     {
@@ -90,12 +84,9 @@ const StyleguidePage = () => {
       <div className='App'>
         <div className='actions'>
           <Button
-            variant='secondary'
             text='Sort'
             padding='10px 66px'
             action={setActiveSort}
-            color='#14142b'
-            backgroundColor='#eee5fe'
           />
           {activeSort && (
             <Modal
@@ -106,18 +97,21 @@ const StyleguidePage = () => {
             />
           )}
           <Button
-            variant= 'secondary'
             text='Select'
             padding='10px 66px'
-            action= {manageSelect}
-            color='#14142b'
-            backgroundColor='#eee5fe'
+            action={manageSelect}
           />
           {activeSelect && (
             <Modal
               title='Select'
               bottom='0'
-              component={<Select showCheckbox={showCheckbox} checked={checkAll} handleCheck={handleCheck}/>}
+              component={
+                <Select
+                selected={selected}
+                  showCheckbox={showCheckbox}
+                  deleteActor={deleteActor}
+                />
+              }
               closeModal={manageSelect}
             />
           )}
@@ -128,9 +122,9 @@ const StyleguidePage = () => {
           <div className='actors'>
             {actors.map((actor) => (
               <Actor
-              isChecked={isChecked}
-              handleCheck={handleCheck}
-              showCheckbox={showCheckbox}
+                selected={selected}
+                setSelected={setSelected}
+                showCheckbox={showCheckbox}
                 key={actor.name}
                 actor={actor}
                 deleteActor={deleteActor}
