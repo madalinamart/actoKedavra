@@ -11,11 +11,11 @@ import CheckBox from './CheckBox/CheckBox';
 
 
 
-const Actor = ({actor, deleteActor, activeForm, openForm, actors, showCheckbox, selected, setSelected}) => { 
+const Actor = ({actor, deleteActor, activeForm, openForm, actors, showCheckbox, isChecked, handleCheck}) => { 
   return (
     <div className='actor'>
       <div className='actor-checkbox'>
-      <CheckBox showCheckbox={showCheckbox} name={actor.name} selected={selected} setSelected={setSelected} />
+      <CheckBox showCheckbox={showCheckbox} name={actor.name} isChecked={isChecked} handleCheck={handleCheck}  />
       </div>
       <Info img={actor.picture} name={actor.name} occupation={actor.occupation} score={actor.score} />
       <div className='close'><Button text='X' action={() => deleteActor(actor.name)}/></div>
