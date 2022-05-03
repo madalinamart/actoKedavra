@@ -31,40 +31,53 @@ const StyleguidePage = () => {
 
   const handleCheck = (e) => {
     let names = [];
-    setIsChecked(e.target.checked)
-    if(e.target.checked) {
-      actors.map((actor) => names.push(actor.name))
-      setSelected(names)     
+    setIsChecked(e.target.checked);
+    if (e.target.checked) {
+      actors.map((actor) => names.push(actor.name));
+      setSelected(names);
     } else {
-      setSelected([])
+      setSelected([]);
     }
-  }  
-
+  };
 
   useEffect(() => {
     setActors(data);
-  }, []);
+  }, []); 
+
+  useEffect(() => {
+    setActors(data);
+  }, [actors]);
+
 
   const deleteActor = (name) => {
     setActors((actors) => actors.filter((actor) => actor.name !== name));
   };
-
-  //EDIT ACTOR
-  /*   const editActor = (name) => {
-    actors.map(actor => { 
-      if(actor.name === name) {        
-      } else {
-        return 'no actor with this name'
-      }
-    })
+  
+  const editActor = (newActor) => {
+    let actorsList = actors.map((actor) =>  actor.name === newActor.name ?  actor : newActor );
+    console.log('actorsList', newActor)
+    setActors(actorsList);
+    console.log('actors = ', actors)     
+    setEditForm(false);
   }
-   */
 
   const manageSelect = () => {
     setActiveSelect(!activeSelect);
     setShowCheckbox(!showCheckbox);
   };
 
+const sortByAscending = () => {
+  let sortedAscending = actors.sort((a, b) => a.name.localeCompare(b.name))
+  setActiveSort(false)
+  setActors(sortedAscending)
+}
+
+
+const sortByDescending = () => {
+  let sortedDescending = actors.sort((a, b) => b.name.localeCompare(a.name))
+  setActiveSort(false)
+  setActors(sortedDescending)
+}
   const alertList = [
     {
       id: 1,
@@ -96,23 +109,37 @@ const StyleguidePage = () => {
       <Header />
       <div className='App'>
         <div className='actions'>
-          <Button text='Sort' padding='10px 66px' action={setActiveSort} />
+          <Button
+            variant='select-sort'
+            text='Sort'
+            padding='10px 66px'
+            action={setActiveSort}
+          />
           {activeSort && (
             <Modal
               title='Select type of sort'
               bottom='0'
-              component={<Sort />}
+              component={<Sort actors={actors} ascending={sortByAscending} descending={sortByDescending}/>}
               closeModal={setActiveSort}
             />
           )}
-          <Button text='Select' padding='10px 66px' action={manageSelect} />
+          <Button
+            variant='select-sort'
+            text='Select'
+            padding='10px 66px'
+            action={manageSelect}
+          />
           {activeSelect && (
             <Modal
-              title='Select'
+              title={
+                actors.length === selected.length
+                  ? 'All Selected'
+                  : `${selected.length} Selected`
+              }
               bottom='0'
               component={
                 <Select
-                  length = {actors.length}
+                  length={actors.length}
                   selected={selected}
                   showCheckbox={showCheckbox}
                   deleteActor={deleteActor}
@@ -120,6 +147,7 @@ const StyleguidePage = () => {
                   isChecked={isChecked}
                   activeDelete={activeDelete}
                   setActiveDelete={setActiveDelete}
+                  closeModal={manageSelect}
                 />
               }
               closeModal={manageSelect}
@@ -141,6 +169,7 @@ const StyleguidePage = () => {
                 actors={actors}
                 isChecked={isChecked}
                 handleCheck={handleCheck}
+                editActor = {editActor}
               />
             ))}
           </div>

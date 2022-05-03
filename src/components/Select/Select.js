@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types'
 import Button from '../Button/Button';
 import CheckBox from '../CheckBox/CheckBox';
 import './Select.css';
@@ -14,11 +14,12 @@ const Select = ({
   length,
   activeDelete,
   setActiveDelete,
+  closeModal
 }) => {
   return (
     <div className='select-container'>
       <div className='select'>
-        <p> Select all</p>
+        <p>Select All</p>
         <CheckBox
           showCheckbox={showCheckbox}
           handleCheck={handleCheck}
@@ -36,7 +37,7 @@ const Select = ({
       />
       {activeDelete && (
         <Modal
-          title='Are you sure you want to delete the selection'
+          title={length === selected.length ? 'Are you sure you want to delete the selection' : 'Are you sure you want to delete this actor'}
           bottom='0'
           component={
             <>
@@ -48,11 +49,24 @@ const Select = ({
               <p onClick={() => setActiveDelete(false)}>I changed my mind</p>
             </>
           }
-          closeModal={setActiveDelete}
+          closeModal={closeModal}
         />
       )}
     </div>
   );
 };
+
+Select.propTypes = {
+  selected : PropTypes.array,
+  showCheckbox: PropTypes.bool,
+  deleteActor: PropTypes.func,
+  handleCheck: PropTypes.func,
+  isChecked: PropTypes.bool,
+  length: PropTypes.number,
+  activeDelete: PropTypes.bool,
+  setActiveDelete: PropTypes.func,
+  closeModal: PropTypes.func
+}
+
 
 export default Select;

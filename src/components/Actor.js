@@ -11,7 +11,7 @@ import CheckBox from './CheckBox/CheckBox';
 
 
 
-const Actor = ({actor, deleteActor, activeForm, openForm, actors, showCheckbox, isChecked, handleCheck}) => { 
+const Actor = ({actor, deleteActor, activeForm, openForm, actors, showCheckbox, isChecked, handleCheck, editActor}) => { 
   return (
     <div className='actor'>
       <div className='actor-checkbox'>
@@ -29,7 +29,7 @@ const Actor = ({actor, deleteActor, activeForm, openForm, actors, showCheckbox, 
             bottom='0'
             top='0'
             title='Edit actor'
-            component={<AddActor closeModal={openForm} actors={actors} />}
+            component={<AddActor closeModal={openForm} actors={actors} submit={editActor}  buttonText='Edit Actor'/>}
             closeModal={openForm}
           />
         )}

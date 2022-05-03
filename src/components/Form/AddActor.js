@@ -10,7 +10,7 @@ const initialValues = {
   description: '',
 };
 
-const AddActor = ({ closeModal, actors}) => {
+const AddActor = ({ closeModal, actors, submit, buttonText}) => {
   const [values, setValues] = useState(initialValues);
   const [char, setChar] = useState(0);
   const [isDisabled, setIsDisabled] = useState(false);
@@ -120,7 +120,7 @@ const AddActor = ({ closeModal, actors}) => {
         <span className='message'>Field required</span>
       ) : null}
 
-      <Button text='Add new actor' variant='primary' />
+      <Button text={buttonText} variant='primary' action={() => submit(values)}/>
       <p onClick={() => closeModal(false)}> I changed my mind</p>
     </form>
   );

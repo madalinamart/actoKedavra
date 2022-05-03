@@ -6,7 +6,7 @@ import './Button.css'
 
 const Button = ({variant, padding, text, action, icon, direction, rotate, disabled}) => {
   return (
-    <button onClick={action}
+    <button onClick={action} type='button'
     style={{padding: padding, flexDirection: direction}} disabled={disabled} className={variant}>{text} <img src={icon} alt='' style={{transform:rotate}}/></button>
   )
 }
