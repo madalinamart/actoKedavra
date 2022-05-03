@@ -22,6 +22,7 @@
 
 .modal-wrapper .modal-container .body {
   display: flex;
+  flex-direction: column;
   align-items: stretch;
   justify-content: center;
   height: 100%;

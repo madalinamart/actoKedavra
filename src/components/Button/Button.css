@@ -59,6 +59,7 @@ button.secondary:focus {
 }
 
 button.secondary:disabled {
-    background-color: #6308f7;
-    opacity: 50%;
+    background-color: rgba(99, 8, 247, 0.5);
+    pointer-events: none;
+    cursor: default;
 }

@@ -25,7 +25,8 @@ const StyleguidePage = () => {
   const [actors, setActors] = useState([]);
   const [showCheckbox, setShowCheckbox] = useState(false);
   const [selected, setSelected] = useState([]);
-  const [isChecked, setIsChecked] = useState(false)
+  const [isChecked, setIsChecked] = useState(false);
+  const [activeDelete, setActiveDelete] = useState(false);
 
 
   const handleCheck = (e) => {
@@ -33,7 +34,7 @@ const StyleguidePage = () => {
     setIsChecked(e.target.checked)
     if(e.target.checked) {
       actors.map((actor) => names.push(actor.name))
-      setSelected(names)
+      setSelected(names)     
     } else {
       setSelected([])
     }
@@ -111,11 +112,14 @@ const StyleguidePage = () => {
               bottom='0'
               component={
                 <Select
+                  length = {actors.length}
                   selected={selected}
                   showCheckbox={showCheckbox}
                   deleteActor={deleteActor}
                   handleCheck={handleCheck}
                   isChecked={isChecked}
+                  activeDelete={activeDelete}
+                  setActiveDelete={setActiveDelete}
                 />
               }
               closeModal={manageSelect}

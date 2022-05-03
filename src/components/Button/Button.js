@@ -4,10 +4,10 @@ import './Button.css'
 
 
 
-const Button = ({variant, padding, text, action, icon, direction, rotate}) => {
+const Button = ({variant, padding, text, action, icon, direction, rotate, disabled}) => {
   return (
     <button onClick={action}
-    style={{padding: padding, flexDirection: direction}} className={variant}>{text} <img src={icon} alt='' style={{transform:rotate}}/></button>
+    style={{padding: padding, flexDirection: direction}} disabled={disabled} className={variant}>{text} <img src={icon} alt='' style={{transform:rotate}}/></button>
   )
 }
 
@@ -18,14 +18,16 @@ Button.propTypes = {
   variant: PropTypes.string,
   icon: PropTypes.string,
   direction: PropTypes.string,
-  rotate: PropTypes.string
+  rotate: PropTypes.string,
+  disabled : PropTypes.bool,
 }
 
 Button.defaultProps = {
   variant: 'secondary',  
   icon: null,
   direction: 'row',
-  rotate: 'none'
+  rotate: 'none',
+  disabled: false
 }
 
 export default Button
