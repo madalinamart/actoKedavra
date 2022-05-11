@@ -47,3 +47,10 @@
   left: 8px;
   top: 1px;
 }
+
+@media screen and (min-width: 768px) {
+    .actor .close {
+    top: 0px;
+    left: 192px;    
+    }
+}

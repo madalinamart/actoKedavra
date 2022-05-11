@@ -9,7 +9,7 @@ form {
   margin-bottom: 24px;
 }
 
-label {
+form label {
   color: #4e4b66;
   font-weight: 400;
   font-size: 15px;
@@ -17,7 +17,7 @@ label {
   margin-bottom: 16px;
 }
 
-input {
+form input {
   border-radius: 10px;
   background-color: #eff0f6;
   padding: 16px;
@@ -27,17 +27,17 @@ input {
   font-weight: 400;
 }
 
-p {
+form p {
   margin-top: 16px;
   text-align: center;
 }
 
-.error {
+form .error {
   border: 2px solid #ed2e7e;
   background-color: #ffe5f2;
 }
 
-textarea {
+form textarea {
   border-radius: 10px;
   background-color: #eff0f6;
   padding: 16px;
@@ -48,7 +48,7 @@ textarea {
   max-width: 100%;
 }
 
-.textarea {
+form .textarea {
   display: flex;
   flex-direction: column;  
   position: relative;
@@ -63,11 +63,11 @@ textarea {
   left: 16px;
 }
 
-button {
+form button {
   margin: auto;
 }
 
-.message {
+form .message {
   position: static;
   font-weight: 600;
   font-size: 13px;
@@ -75,4 +75,34 @@ button {
   letter-spacing: 0.25px;
   color: #98014c;
   margin-top: 8px;
+}
+
+
+@media screen and (min-width:768px) {
+  form .name-occupation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:  10px;
+  }  
+
+  form label, input, textarea {
+    font-size: 22px;
+    line-height: 26.4px;
+  }
+
+  form p {
+    font-size: 24px;
+    line-height: 28.8px;
+    margin-top: 24px;
+  }
+
+  #remaining {
+    font-size: 18px;
+    line-height: 23.4px;
+    bottom: 10px;
+  }
+
+  form .textarea {
+    margin-bottom: 56px;
+  }
 }

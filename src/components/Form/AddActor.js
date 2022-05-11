@@ -61,6 +61,7 @@ const AddActor = ({ closeModal, actors, submit, buttonText}) => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div className='name-occupation'>
       <div className='inputs'>
         <label htmlFor='name'>Name</label>
         <input
@@ -87,6 +88,7 @@ const AddActor = ({ closeModal, actors, submit, buttonText}) => {
         {isSubmitted && !values.occupation ? (
           <span className='message'>Field required</span>
         ) : null}
+      </div>
       </div>
 
       <div className='inputs'>
@@ -115,10 +117,11 @@ const AddActor = ({ closeModal, actors, submit, buttonText}) => {
           className={isSubmitted && !values.description ? 'error' : null}
         ></textarea>
         <span id='remaining'>{remainingWords} characters remaining</span>
-      </div>
-      {isSubmitted && !values.description ? (
+        {isSubmitted && !values.description ? (
         <span className='message'>Field required</span>
       ) : null}
+      </div>
+
 
       <Button text={buttonText} variant='primary' action={() => submit(values)}/>
       <p onClick={() => closeModal(false)}> I changed my mind</p>

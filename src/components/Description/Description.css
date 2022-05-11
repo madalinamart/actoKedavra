@@ -22,3 +22,11 @@
   margin-top: 8px;
   margin-bottom: 16px;
 }
+
+
+@media screen and (min-width:768px){
+  .description p, span {
+    font-size: 16px;
+    line-height: 19.2px;
+  }
+}

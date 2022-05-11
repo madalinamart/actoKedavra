@@ -36,3 +36,16 @@
   grid-gap: 11px;
   margin: 32px 0;
 }
+
+@media screen and (min-width: 768px) {
+  .App .actors {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+    margin: 60px 0;
+  }
+
+  .App .actions .select-sort {
+    font-size: 27px;
+    line-height: 32.4px;
+  }
+}

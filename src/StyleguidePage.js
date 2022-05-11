@@ -44,10 +44,6 @@ const StyleguidePage = () => {
     setActors(data);
   }, []); 
 
-  useEffect(() => {
-    setActors(data);
-  }, [actors]);
-
 
   const deleteActor = (name) => {
     setActors((actors) => actors.filter((actor) => actor.name !== name));
@@ -119,7 +115,7 @@ const sortByDescending = () => {
             <Modal
               title='Select type of sort'
               bottom='0'
-              component={<Sort actors={actors} ascending={sortByAscending} descending={sortByDescending}/>}
+              component={<Sort ascending={sortByAscending} descending={sortByDescending}/>}
               closeModal={setActiveSort}
             />
           )}
@@ -185,7 +181,7 @@ const sortByDescending = () => {
             bottom='0'
             top='0'
             title='Add new actor'
-            component={<AddActor closeModal={setActiveForm} />}
+            component={<AddActor closeModal={setActiveForm} buttonText='Add new actor'/>}
             closeModal={setActiveForm}
           />
         )}

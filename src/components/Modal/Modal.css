@@ -27,6 +27,14 @@
   justify-content: center;
   height: 100%;
 }
+.modal-wrapper .modal-container .body p {
+ margin-top: 16px;
+ text-align: center;
+ font-size: 15px;
+ line-height: 18px;
+ letter-spacing: 0.5px;
+}
+
 
 .modal-wrapper .modal-container .close {
   position: absolute;
@@ -55,4 +63,24 @@
   text-align: center;
   color: #14142b;
   margin-bottom: 32px;
+}
+
+
+@media screen and (min-width: 768px) {
+  .modal-wrapper {
+    padding: 0px;
+  }
+  .modal-wrapper .modal-container {
+    width: 80%;
+  }
+  .modal-wrapper .modal-container .body p {
+    font-size: 24px;
+    line-height: 28.8px;
+    margin-top: 24px;
+  }
+  
+  .modal-wrapper .modal-container h1 {
+    font-size: 30px;
+    line-height: 40px;
+  }
 }
