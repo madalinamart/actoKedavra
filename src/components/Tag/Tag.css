@@ -19,3 +19,10 @@
         line-height: 19.2px;
     }    
 }
+
+@media screen and (min-width:1280) {
+    .hobby {
+        font-size: 21px;
+        line-height: 25.2px;
+    }
+}

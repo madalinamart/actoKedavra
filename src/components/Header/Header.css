@@ -17,3 +17,11 @@ header {
         line-height: 36px;
     }
 }  
+
+
+@media screen and (min-width: 1280px){
+    header {
+        font-size: 32px;
+        line-height: 38.4px;
+    }
+}

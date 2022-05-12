@@ -62,3 +62,27 @@
         line-height: 20.8px;
     }
 }
+
+@media screen and (min-width:1280px){
+    .profile-img {
+        height: 371.45px;
+    }    
+
+    .info h2 {
+        font-size: 26px;
+        line-height: 31.2px;
+        margin-bottom: 9px;
+    }
+
+    .info .occupation-likes p, .info .occupation-likes span {
+        font-size: 23px;
+        line-height: 27.6px;
+        margin-bottom: 25px;
+    }
+
+    .info .occupation-likes img {
+        width: 18px;
+        height: 18px;
+        margin-left: 4px; 
+    }
+}

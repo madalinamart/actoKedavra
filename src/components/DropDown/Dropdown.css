@@ -1,0 +1,32 @@
+.dropdown-wrapper {
+    position: absolute;
+      display: flex;
+      z-index: 1;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.dropdown-wrapper .dropdown-container div {
+    display: flex;
+    flex-direction: row;  
+}
+
+.dropdown-container p, .dropdown-container li {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28.8px;
+    color: #14142b;
+    text-align: left;
+    margin-bottom: 27px;
+}
+
+.dropdown-container img {
+    width: 9.28px;
+    height: 18.57px;
+    color: #14142b;
+    margin-left: 14px;
+}
+
+.dropdown-container ul {
+    background-color: #ffffff;
+}

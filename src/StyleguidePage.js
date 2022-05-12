@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import './App.css';
+import './StyleguidePage.css';
 import data from './actors.json';
-import PropTypes from 'prop-types';
 import Actor from './components/Actor';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -14,7 +13,8 @@ import danger from './icons/danger.svg';
 import NoActors from './components/NoMoreActors/NoActors';
 import Sort from './components/Sort/Sort';
 import AddActor from './components/Form/AddActor';
-import Select from './components/Select/Select';
+import Select from './components/SelectActor/Select';
+import Dropdown from './components/DropDown/Dropdown';
 
 const StyleguidePage = () => {
   const [activeSort, setActiveSort] = useState(false);
@@ -27,18 +27,8 @@ const StyleguidePage = () => {
   const [selected, setSelected] = useState([]);
   const [isChecked, setIsChecked] = useState(false);
   const [activeDelete, setActiveDelete] = useState(false);
-
-
-  const handleCheck = (e) => {
-    let names = [];
-    setIsChecked(e.target.checked);
-    if (e.target.checked) {
-      actors.map((actor) => names.push(actor.name));
-      setSelected(names);
-    } else {
-      setSelected([]);
-    }
-  };
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+ 
 
   useEffect(() => {
     setActors(data);
@@ -66,6 +56,7 @@ const sortByAscending = () => {
   let sortedAscending = actors.sort((a, b) => a.name.localeCompare(b.name))
   setActiveSort(false)
   setActors(sortedAscending)
+  setIsDropDownOpen(false)
 }
 
 
@@ -73,7 +64,22 @@ const sortByDescending = () => {
   let sortedDescending = actors.sort((a, b) => b.name.localeCompare(a.name))
   setActiveSort(false)
   setActors(sortedDescending)
+  setIsDropDownOpen(false)
 }
+
+const handleCheck = (e) => {
+  let names = [];
+  setIsChecked(e.target.checked);
+  if (e.target.checked) {
+    actors.map((actor) => names.push(actor.name));
+    setSelected(names);
+  } else {
+    setSelected([]);
+  }
+};
+
+
+
   const alertList = [
     {
       id: 1,
@@ -100,11 +106,13 @@ const sortByDescending = () => {
       icon: danger,
     },
   ];
+  
   return (
     <>
       <Header />
       <div className='App'>
         <div className='actions'>
+          <Dropdown isDropDownOpen={isDropDownOpen} setIsDropDownOpen={setIsDropDownOpen} ascending={sortByAscending} descending={sortByDescending} />
           <Button
             variant='select-sort'
             text='Sort'
@@ -189,13 +197,6 @@ const sortByDescending = () => {
       <Footer />
     </>
   );
-};
-
-StyleguidePage.propTypes = {
-  name: PropTypes.string,
-  score: PropTypes.number,
-  hobbies: PropTypes.string,
-  describe: PropTypes.string,
 };
 
 export default StyleguidePage;

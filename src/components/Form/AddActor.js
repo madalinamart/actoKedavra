@@ -123,7 +123,7 @@ const AddActor = ({ closeModal, actors, submit, buttonText}) => {
       </div>
 
 
-      <Button text={buttonText} variant='primary' action={() => submit(values)}/>
+      <Button text={buttonText} variant='primary' action={handleSubmit}/>
       <p onClick={() => closeModal(false)}> I changed my mind</p>
     </form>
   );
