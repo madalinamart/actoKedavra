@@ -21,8 +21,8 @@
 
 .checkbox {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0%;
+  right: 0%;
   display: inline-block;
   width: 32px;
   height: 32px;
@@ -56,10 +56,3 @@
   transform: rotate(45deg);
 }
 
-
-@media screen and (min-width:768px) {
-  .checkbox {
-    top: -20px;
-    left: 60px;
-  }  
-}

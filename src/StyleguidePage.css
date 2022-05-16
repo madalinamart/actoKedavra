@@ -9,16 +9,18 @@
   min-height: 100vh;
 }
 
+.App .actions-desktop {
+  display: none;
+}
+
 .App .actions {
-  width: 100%;
   margin-top: 22px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: row;
   grid-gap: 15px;
 }
 
-
-.App .actions .select-sort  {
+.App .actions .select-sort {
   color: #14142b;
   background-color: #eee5fe;
   border: 1px solid #6308f7;
@@ -29,7 +31,6 @@
   cursor: pointer;
 }
 
-
 .App .actors {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(162px, 1fr));
@@ -38,6 +39,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .App .actions {
+    width: 100%;
+  }
   .App .actors {
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 40px;
@@ -48,24 +52,32 @@
     font-size: 27px;
     line-height: 32.4px;
   }
-  
 }
 
-
 @media screen and (min-width: 1280px) {
-
   .App {
-    padding: 34px 40px;
-  }
-  
-  .App .actors {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 48px;
-    margin:32px 0 62px;
+    padding: 0px;
   }
 
-  .App .actions .select-sort {
+  .App .actions-desktop {
+    background-color: #eff0f6;
+    width: 100%;
+    height: 100px;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 90px;
+  }
+
+  .App .actions  {
     display: none;
   }
 
+  .App .actors {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 48px;
+    margin: 32px 0 62px;
+  }
 }

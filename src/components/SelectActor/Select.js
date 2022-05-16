@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import CheckBox from '../CheckBox/CheckBox';
 import './Select.css';
@@ -14,8 +14,12 @@ const Select = ({
   length,
   activeDelete,
   setActiveDelete,
-  closeModal
+  closeModal,
 }) => {
+  const deleteActors = () => {
+    selected.map((select) => deleteActor(select));
+    closeModal();
+  };
   return (
     <div className='select-container'>
       <div className='select'>
@@ -37,16 +41,20 @@ const Select = ({
       />
       {activeDelete && (
         <Modal
-          title={length === selected.length ? 'Are you sure you want to delete the selection' : 'Are you sure you want to delete this actor'}
+          title={
+            length === selected.length
+              ? 'Are you sure you want to delete the selection'
+              : 'Are you sure you want to delete this actor'
+          }
           bottom='0'
           component={
             <>
               <Button
                 text='Yes, delete'
                 variant='primary'
-                action={() => selected.map((select) => deleteActor(select))}
+                action={deleteActors}
               />{' '}
-              <p onClick={() => setActiveDelete(false)}>I changed my mind</p>
+              <p onClick={closeModal}>I changed my mind</p>
             </>
           }
           closeModal={closeModal}
@@ -57,7 +65,7 @@ const Select = ({
 };
 
 Select.propTypes = {
-  selected : PropTypes.array,
+  selected: PropTypes.array,
   showCheckbox: PropTypes.bool,
   deleteActor: PropTypes.func,
   handleCheck: PropTypes.func,
@@ -65,8 +73,7 @@ Select.propTypes = {
   length: PropTypes.number,
   activeDelete: PropTypes.bool,
   setActiveDelete: PropTypes.func,
-  closeModal: PropTypes.func
-}
-
+  closeModal: PropTypes.func,
+};
 
 export default Select;

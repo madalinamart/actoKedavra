@@ -10,8 +10,8 @@
 
 .actor .close { 
     position: absolute;
-    top: 10px;
-    left: 170px;
+    top: 0%;
+    right: 0%;
 } 
 
 .actor .close button {
@@ -32,8 +32,8 @@
 
 .actor .actor-checkbox {
     position: absolute;
-    top: 10px;
-    left: 165px;
+    top: 0%;
+    right: 0%;
     z-index: 100;
 }
 
@@ -50,13 +50,6 @@
 
 .actor a {
     width: 100%;
-}
-
-@media screen and (min-width: 768px) {
-    .actor .close {
-    top: 0px;
-    left: 192px;    
-    }
 }
 
 @media screen and (min-width: 1280px) {
