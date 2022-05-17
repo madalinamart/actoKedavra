@@ -46,7 +46,7 @@ const SelectDesktop = ({ activeSelectDesktop, setActiveSelectDesktop, showCheckb
               />
             </div>
           </div>
-          <Button text='Delete' variant='primary' />
+          <Button text='Delete' variant='primary'  />
         </div>
       ) : null}
     </div>

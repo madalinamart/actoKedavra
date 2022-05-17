@@ -55,10 +55,7 @@
 
   .select-desktop .select-desktop-wrapper .selected .select-all-actors {
     display: flex;
-    flex-direction: row;
-    align-items: center;
     margin-left:48px;
-    position: relative;
   }
 
   .select-desktop .select-desktop-wrapper .selected .select-all-actors p {

@@ -44,6 +44,7 @@ const AddActor = ({ closeModal, actors, submit, buttonText}) => {
 
   const handleHobbies = (event) => {
     setValues({ ...values, hobbies: event.target.value });
+    console.log(values)
   };
 
   const handleDescription = (event) => {
@@ -123,7 +124,7 @@ const AddActor = ({ closeModal, actors, submit, buttonText}) => {
       </div>
 
 
-      <Button text={buttonText} variant='primary' action={handleSubmit}/>
+      <Button text={buttonText} variant='primary' action={() => submit(values,name)}/>
       <p onClick={() => closeModal(false)}> I changed my mind</p>
     </form>
   );

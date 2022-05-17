@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import './StyleguidePage.css';
-import data from './actors.json';
 import Actor from './components/Actor';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -33,21 +32,31 @@ const StyleguidePage = () => {
   const [activeSelectDesktop, setActiveSelectDesktop] = useState(false);
 
   useEffect(() => {
-    setActors(data);
+    fetchActors();
   }, []);
+
+  const fetchActors = () => {
+    fetch('/actors.json')
+      .then((res) => res.json())
+      .then((data) => {
+        setActors(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const deleteActor = (name) => {
     setActors((actors) => actors.filter((actor) => actor.name !== name));
   };
 
-  const editActor = (newActor) => {
-    let actorsList = actors.map((actor) =>
-      actor.name === newActor.name ? actor : newActor
-    );
-    console.log('actorsList', newActor);
-    setActors(actorsList);
-    console.log('actors = ', actors);
-    setEditForm(false);
+  const editActor = (newActor, name) => {
+    let newActors = actors.map(el => el.name === name ? 
+      el = newActor
+      : 
+      el)
+    setActors(newActors)
+    setEditForm(false)
   };
 
   const manageSelect = () => {
