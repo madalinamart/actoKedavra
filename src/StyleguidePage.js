@@ -51,6 +51,7 @@ const StyleguidePage = () => {
   };
 
   const editActor = (newActor, name) => {
+    newActor.hobbies = newActor.hobbies.split(",")
     let newActors = actors.map(el => el.name === name ? 
       el = newActor
       : 
@@ -137,6 +138,7 @@ const StyleguidePage = () => {
             setShowCheckbox={setShowCheckbox}
             actors={actors}
             selected={selected}
+            deleteActor={deleteActor}
           />
         </div>
         <div className='actions'>
@@ -156,7 +158,7 @@ const StyleguidePage = () => {
                   descending={sortByDescending}
                 />
               }
-              closeModal={setActiveSort}
+              closeModal={() => setActiveSort(!activeSort)}
             />
           )}
           <Button
@@ -190,7 +192,6 @@ const StyleguidePage = () => {
             />
           )}
         </div>
-
         {!actors.length ? (
           <NoActors />
         ) : (
@@ -214,7 +215,7 @@ const StyleguidePage = () => {
         <Button
           variant='primary'
           text='Add new actor'
-          disabled={actors.length >= 7 ? true : false}
+          disabled={actors.length >= 7  || activeSelectDesktop ? true : false}
           padding='16px 106px'
           action={setActiveForm}
         />

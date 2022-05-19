@@ -67,6 +67,9 @@
 
 
 @media screen and (min-width: 768px) {
+  .modal-wrapper {
+    border-radius: 0px;
+  }
   .modal-wrapper .modal-container {
     width: 80%;
   }
@@ -79,5 +82,13 @@
   .modal-wrapper .modal-container h1 {
     font-size: 30px;
     line-height: 40px;
+  }
+
+  .modal-wrapper .modal-container .close {
+    display: block;
+  }
+
+  .modal-wrapper .modal-container .close button {
+   box-shadow: none;
   }
 }

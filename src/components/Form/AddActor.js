@@ -43,8 +43,7 @@ const AddActor = ({ closeModal, actors, submit, buttonText}) => {
   };
 
   const handleHobbies = (event) => {
-    setValues({ ...values, hobbies: event.target.value });
-    console.log(values)
+    setValues({ ...values, hobbies: event.target.value});
   };
 
   const handleDescription = (event) => {

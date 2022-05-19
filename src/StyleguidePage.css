@@ -17,7 +17,6 @@
   margin-top: 22px;
   display: flex;
   flex-direction: row;
-  grid-gap: 15px;
 }
 
 .App .actions .select-sort {
@@ -29,6 +28,10 @@
   line-height: 16.8px;
   text-align: center;
   cursor: pointer;
+}
+
+.App .actions .select-sort:first-child {
+  margin-right: 15px;
 }
 
 .App .actors {
@@ -55,10 +58,6 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .App {
-    padding: 0px;
-  }
-
   .App .actions-desktop {
     background-color: #eff0f6;
     width: 100%;
