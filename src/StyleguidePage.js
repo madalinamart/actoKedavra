@@ -30,6 +30,7 @@ const StyleguidePage = () => {
   const [activeDelete, setActiveDelete] = useState(false);
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [activeSelectDesktop, setActiveSelectDesktop] = useState(false);
+ 
 
   useEffect(() => {
     fetchActors();
@@ -45,6 +46,22 @@ const StyleguidePage = () => {
         console.log(error);
       });
   };
+
+  const handleSelectAll = (e) => {
+    setIsChecked(!isChecked);
+    setSelected(actors.map(actor => actor.name))
+    if(isChecked) {
+      setSelected([]);
+    }
+  }
+
+  const handleCheck = (e) => {
+    const {id, checked} = e.target;
+    setSelected([...selected, id]);
+    if (!checked) {
+      setSelected(selected.filter(item => item !== id))
+    }
+  }
 
   const deleteActor = (name) => {
     setActors((actors) => actors.filter((actor) => actor.name !== name));
@@ -78,17 +95,7 @@ const StyleguidePage = () => {
     setActors(sortedDescending);
     setIsDropDownOpen(false);
   };
-
-  const handleCheck = (e) => {
-    let names = [];
-    setIsChecked(e.target.checked);
-    if (e.target.checked) {
-      actors.map((actor) => names.push(actor.name));
-      setSelected(names);
-    } else {
-      setSelected([]);
-    }
-  };
+ 
 
   const alertList = [
     {
@@ -133,12 +140,13 @@ const StyleguidePage = () => {
             setActiveSelectDesktop={setActiveSelectDesktop}
             activeSelectDesktop={activeSelectDesktop}
             showCheckbox={showCheckbox}
-            handleCheck={handleCheck}
-            isChecked={isChecked}
+            setSelected={setSelected}
             setShowCheckbox={setShowCheckbox}
             actors={actors}
             selected={selected}
             deleteActor={deleteActor}
+            handleCheck={handleSelectAll}
+            isChecked={isChecked}
           />
         </div>
         <div className='actions'>
@@ -181,11 +189,11 @@ const StyleguidePage = () => {
                   selected={selected}
                   showCheckbox={showCheckbox}
                   deleteActor={deleteActor}
-                  handleCheck={handleCheck}
-                  isChecked={isChecked}
                   activeDelete={activeDelete}
                   setActiveDelete={setActiveDelete}
                   closeModal={manageSelect}
+                  handleCheck={handleSelectAll}
+                  isChecked={isChecked}
                 />
               }
               closeModal={manageSelect}
@@ -205,9 +213,10 @@ const StyleguidePage = () => {
                 activeForm={editForm}
                 openForm={setEditForm}
                 actors={actors}
-                isChecked={isChecked}
-                handleCheck={handleCheck}
+                setSelected={setSelected}
                 editActor={editActor}
+                handleCheck={handleCheck}
+                isChecked={selected.includes(actor.name)}
               />
             ))}
           </div>

@@ -8,12 +8,13 @@ const SelectDesktop = ({
   activeSelectDesktop,
   setActiveSelectDesktop,
   showCheckbox,
-  handleCheck,
-  isChecked,
   setShowCheckbox,
   actors,
   selected,
   deleteActor,
+  setSelected,
+  handleCheck,
+  isChecked
 }) => {
   const toggleSelect = () => {
     setActiveSelectDesktop(!activeSelectDesktop);
@@ -52,8 +53,11 @@ const SelectDesktop = ({
               <p>Select all</p>
               <CheckBox
                 showCheckbox={showCheckbox}
-                handleCheck={handleCheck}
+                actors={actors}
+                setSelected={setSelected}
+                selected={selected}
                 isChecked={isChecked}
+                handleCheck={handleCheck}
               />
             </div>
           </div>

@@ -9,12 +9,12 @@ const Select = ({
   selected,
   showCheckbox,
   deleteActor,
-  handleCheck,
-  isChecked,
   length,
   activeDelete,
   setActiveDelete,
   closeModal,
+  isChecked,
+  handleCheck,
 }) => {
   const deleteActors = () => {
     selected.map((select) => deleteActor(select));
@@ -26,8 +26,9 @@ const Select = ({
         <p>Select All</p>
         <CheckBox
           showCheckbox={showCheckbox}
-          handleCheck={handleCheck}
+          name='select-all'
           isChecked={isChecked}
+          handleCheck={handleCheck}
         />
       </div>
       <Button
