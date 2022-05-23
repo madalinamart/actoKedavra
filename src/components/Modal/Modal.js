@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../Button/Button';
 import './Modal.css';
+import PropTypes from 'prop-types'
 
 const Modal = ({closeModal, title, component, bottom, top }) => {
 
@@ -20,5 +21,17 @@ const Modal = ({closeModal, title, component, bottom, top }) => {
     </div>
   );
 };
+
+Modal.propTypes = {
+  closeModal: PropTypes.func,
+  title: PropTypes.string,
+  component: PropTypes.any,
+  bottom: PropTypes.string,
+  top: PropTypes.string
+}
+
+Modal.defaultProps = {
+  bottom: '0'
+}
 
 export default Modal;

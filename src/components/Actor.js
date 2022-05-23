@@ -9,6 +9,7 @@ import Modal from './Modal/Modal';
 import Form from './Form/Form';
 import FormInput from './FormInput/FormInput';
 import CheckBox from './CheckBox/CheckBox';
+import PropTypes from 'prop-types'
 
 const Actor = ({
   actor,
@@ -45,8 +46,6 @@ const Actor = ({
       <Hobbies hobbies={actor.hobbies} />
       <Description
         description={actor.description}
-        readMore='Read more'
-        readLess='Read Less'
       />
       <Link to={`/${actor.name}`}>
         <Button text='Edit' padding='8px' icon={edit} action={openForm} />
@@ -92,5 +91,19 @@ const Actor = ({
     </div>
   );
 };
+
+Actor.propTypes = {
+  activeForm: PropTypes.bool,
+  actor: PropTypes.object,
+  actors: PropTypes.array,
+  deleteActor: PropTypes.func,
+  editActor: PropTypes.func,
+  handleCheck: PropTypes.func,
+  isChecked: PropTypes.bool,
+  openForm: PropTypes.func,
+  setActiveForm: PropTypes.func,
+  setSelected: PropTypes.func,
+  showCheckbox: PropTypes.bool
+}
 
 export default Actor;

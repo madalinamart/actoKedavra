@@ -3,6 +3,7 @@ import Button from '../Button/Button';
 import CheckBox from '../CheckBox/CheckBox';
 import './SelectDesktop.css';
 import Delete from '../../icons/Delete.svg';
+import PropTypes from 'prop-types'
 
 const SelectDesktop = ({
   activeSelectDesktop,
@@ -71,5 +72,17 @@ const SelectDesktop = ({
     </div>
   );
 };
+
+SelectDesktop.propTypes = {
+  activeSelectDesktop: PropTypes.bool,
+  deleteActor: PropTypes.func,
+  handleCheck: PropTypes.func,
+  isChecked: PropTypes.bool,
+  length: PropTypes.number,
+  selected: PropTypes.array,
+  setActiveSelectDesktop: PropTypes.func,
+  setShowCheckbox: PropTypes.func,
+  showCheckbox: PropTypes.bool
+}
 
 export default SelectDesktop;

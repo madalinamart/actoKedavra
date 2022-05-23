@@ -1,6 +1,8 @@
 import React from 'react'
 import like from '../../icons/like.svg'
 import './Info.css'
+import PropTypes from 'prop-types'
+
 
 const Info = ({img, name, occupation, score}) => {
   return (
@@ -15,6 +17,13 @@ const Info = ({img, name, occupation, score}) => {
     </div>
     </>
   )
+} 
+
+Info.propTypes = {
+  img: PropTypes.string,
+  name: PropTypes.string,
+  occupation: PropTypes.string,
+  score: PropTypes.number
 }
 
 export default Info

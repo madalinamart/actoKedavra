@@ -1,6 +1,7 @@
 import React from 'react';
 import './Dropdown.css';
 import arrow from '../../icons/Forward.svg';
+import PropTypes from 'prop-types'
 
 const Dropdown = ({
   isDropDownOpen,
@@ -34,5 +35,13 @@ const Dropdown = ({
     </>
   );
 };
+
+Dropdown.propTypes = {
+  isDropDownOpen: PropTypes.bool,
+  setIsDropDownOpen: PropTypes.func,
+  ascending: PropTypes.func,
+  descending: PropTypes.func,
+  activeSelectDesktop: PropTypes.bool
+}
 
 export default Dropdown;

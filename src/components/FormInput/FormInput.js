@@ -1,11 +1,12 @@
 import './FormInput.css';
 import { useContext } from 'react';
 import { FormContext } from '../Form/Form';
+import PropTypes from 'prop-types'
 
 const FormInput = (props) => {
   const {
     label,
-    type = 'text',
+    type ,
     name,
   } = props;
   const formContext = useContext(FormContext);
@@ -43,5 +44,15 @@ const FormInput = (props) => {
     </div>
   );
 };
+
+FormInput.propTypes = {
+  label: PropTypes.string,
+  type: PropTypes.string,
+  name: PropTypes.string
+}
+
+FormInput.defaultProps = {
+  type: 'text'
+}
 
 export default FormInput;

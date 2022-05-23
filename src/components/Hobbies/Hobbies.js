@@ -1,6 +1,7 @@
 import React from "react";
 import Tag from "../Tag/Tag";
 import "./Hobbies.css";
+import PropTypes from 'prop-types'
 
 const Hobbies = ({ hobbies }) => {
   console.log('hobbies', hobbies)
@@ -14,5 +15,9 @@ const Hobbies = ({ hobbies }) => {
     </div>
   );
 };
+
+Hobbies.propTypes = {
+  hobbies: PropTypes.array
+}
 
 export default Hobbies;

@@ -3,6 +3,7 @@ import './Form.css';
 import { useState, useEffect } from 'react';
 import Button from '../Button/Button';
 import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types'
 
 export const FormContext = React.createContext({
   form: {},
@@ -92,5 +93,21 @@ const Form = (props) => {
     </form>
   );
 };
+
+Form.propTypes = {
+  buttonText: PropTypes.string,
+  children: PropTypes.array,
+  closeModal: PropTypes.func,
+  formInitialValues: PropTypes.object
+}
+
+Form.defaultProps = {
+  formInitialValues : {
+    name:'',
+    occupation:'',
+    hobbies: [],
+    description: ''
+  }
+}
 
 export default Form;

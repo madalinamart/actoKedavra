@@ -1,4 +1,5 @@
 import './CheckBox.css';
+import PropTypes from 'prop-types'
 
 const CheckBox = ({ showCheckbox, name, handleCheck, isChecked, id}) => {
     
@@ -14,4 +15,11 @@ const CheckBox = ({ showCheckbox, name, handleCheck, isChecked, id}) => {
   );
 };
 
+CheckBox.propTypes = {
+  showCheckbox: PropTypes.bool,
+  name: PropTypes.string,
+  id: PropTypes.string,
+  handleCheck: PropTypes.func,
+  isChecked: PropTypes.bool
+}
 export default CheckBox;

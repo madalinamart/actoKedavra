@@ -15,8 +15,7 @@ import Select from './components/SelectActor/Select';
 import Dropdown from './components/DropDown/Dropdown';
 import SelectDesktop from './components/SelectActor/SelectDesktop';
 import Form from './components/Form/Form';
-import FormInput from './components/FormInput/FormInput'
-
+import FormInput from './components/FormInput/FormInput';
 
 const StyleguidePage = () => {
   const [activeSort, setActiveSort] = useState(false);
@@ -31,7 +30,6 @@ const StyleguidePage = () => {
   const [activeDelete, setActiveDelete] = useState(false);
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [activeSelectDesktop, setActiveSelectDesktop] = useState(false);
-
 
   useEffect(() => {
     fetchActors();
@@ -95,7 +93,6 @@ const StyleguidePage = () => {
     setIsDropDownOpen(false);
   };
 
-
   const alertList = [
     {
       id: 1,
@@ -125,7 +122,7 @@ const StyleguidePage = () => {
 
   return (
     <>
-      <Header />            
+      <Header />
       <div className='App'>
         <div className='actions-desktop'>
           <Dropdown
@@ -157,7 +154,6 @@ const StyleguidePage = () => {
           {activeSort && (
             <Modal
               title='Select type of sort'
-              bottom='0'
               component={
                 <Sort
                   ascending={sortByAscending}
@@ -180,7 +176,6 @@ const StyleguidePage = () => {
                   ? 'All Selected'
                   : `${selected.length} Selected`
               }
-              bottom='0'
               component={
                 <Select
                   length={actors.length}
@@ -229,27 +224,26 @@ const StyleguidePage = () => {
         />
         {activeForm && (
           <Modal
-            bottom='0'
             top='0'
             title='Add new actor'
             component={
-              <Form formInitialValues={{
-                name:'',
-                occupation:'',
-                hobbies: [],
-                description: ''
-              }}
-              buttonText='Add new actor'
-              closeModal={setActiveForm}>
+              <Form buttonText='Add new actor' closeModal={setActiveForm}>
                 <div className='name-occupation'>
-                <FormInput label="Name" name="name" />
-                <FormInput label="Occupation besides acting" name="occupation" />
+                  <FormInput label='Name' name='name' />
+                  <FormInput
+                    label='Occupation besides acting'
+                    name='occupation'
+                  />
                 </div>
-                <FormInput label="Hobbies" name="hobbies" />
+                <FormInput label='Hobbies' name='hobbies' />
                 <div className='textarea'>
-                <FormInput label="Description" name="description" type='textarea' />
+                  <FormInput
+                    label='Description'
+                    name='description'
+                    type='textarea'
+                  />
                 </div>
-              </Form> 
+              </Form>
             }
             closeModal={setActiveForm}
           />
