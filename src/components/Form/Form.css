@@ -1,6 +1,7 @@
 form {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .inputs {
@@ -59,8 +60,8 @@ form .textarea {
   font-size: 10px;
   line-height: 13px;
   position: absolute;
-  bottom: 30px;
-  left: 16px;
+  bottom: 25%;
+  left: 1%;
 }
 
 form button {
@@ -99,7 +100,6 @@ form .message {
   #remaining {
     font-size: 18px;
     line-height: 23.4px;
-    bottom: 10px;
   }
 
   form .textarea {

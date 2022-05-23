@@ -11,11 +11,12 @@ import warning from './icons/warning.svg';
 import danger from './icons/danger.svg';
 import NoActors from './components/NoMoreActors/NoActors';
 import Sort from './components/Sort/Sort';
-import AddActor from './components/Form/AddActor';
 import Select from './components/SelectActor/Select';
 import Dropdown from './components/DropDown/Dropdown';
 import SelectDesktop from './components/SelectActor/SelectDesktop';
-import CheckBox from './components/CheckBox/CheckBox';
+import Form from './components/Form/Form';
+import FormInput from './components/FormInput/FormInput'
+
 
 const StyleguidePage = () => {
   const [activeSort, setActiveSort] = useState(false);
@@ -30,7 +31,7 @@ const StyleguidePage = () => {
   const [activeDelete, setActiveDelete] = useState(false);
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [activeSelectDesktop, setActiveSelectDesktop] = useState(false);
- 
+
 
   useEffect(() => {
     fetchActors();
@@ -49,32 +50,30 @@ const StyleguidePage = () => {
 
   const handleSelectAll = (e) => {
     setIsChecked(!isChecked);
-    setSelected(actors.map(actor => actor.name))
-    if(isChecked) {
+    setSelected(actors.map((actor) => actor.name));
+    if (isChecked) {
       setSelected([]);
     }
-  }
+  };
 
   const handleCheck = (e) => {
-    const {id, checked} = e.target;
+    const { id, checked } = e.target;
     setSelected([...selected, id]);
     if (!checked) {
-      setSelected(selected.filter(item => item !== id))
+      setSelected(selected.filter((item) => item !== id));
     }
-  }
+  };
 
   const deleteActor = (name) => {
     setActors((actors) => actors.filter((actor) => actor.name !== name));
   };
 
   const editActor = (newActor, name) => {
-    newActor.hobbies = newActor.hobbies.split(",")
-    let newActors = actors.map(el => el.name === name ? 
-      el = newActor
-      : 
-      el)
-    setActors(newActors)
-    setEditForm(false)
+    let newActors = actors.map((el) =>
+      el.name === name ? (el = newActor) : el
+    );
+    setActors(newActors);
+    setEditForm(false);
   };
 
   const manageSelect = () => {
@@ -95,7 +94,7 @@ const StyleguidePage = () => {
     setActors(sortedDescending);
     setIsDropDownOpen(false);
   };
- 
+
 
   const alertList = [
     {
@@ -126,7 +125,7 @@ const StyleguidePage = () => {
 
   return (
     <>
-      <Header />
+      <Header />            
       <div className='App'>
         <div className='actions-desktop'>
           <Dropdown
@@ -140,13 +139,12 @@ const StyleguidePage = () => {
             setActiveSelectDesktop={setActiveSelectDesktop}
             activeSelectDesktop={activeSelectDesktop}
             showCheckbox={showCheckbox}
-            setSelected={setSelected}
             setShowCheckbox={setShowCheckbox}
-            actors={actors}
             selected={selected}
             deleteActor={deleteActor}
             handleCheck={handleSelectAll}
             isChecked={isChecked}
+            length={actors.length}
           />
         </div>
         <div className='actions'>
@@ -217,6 +215,7 @@ const StyleguidePage = () => {
                 editActor={editActor}
                 handleCheck={handleCheck}
                 isChecked={selected.includes(actor.name)}
+                setActiveForm={setActiveForm}
               />
             ))}
           </div>
@@ -224,7 +223,7 @@ const StyleguidePage = () => {
         <Button
           variant='primary'
           text='Add new actor'
-          disabled={actors.length >= 7  || activeSelectDesktop ? true : false}
+          disabled={actors.length >= 7 || activeSelectDesktop ? true : false}
           padding='16px 106px'
           action={setActiveForm}
         />
@@ -234,7 +233,23 @@ const StyleguidePage = () => {
             top='0'
             title='Add new actor'
             component={
-              <AddActor closeModal={setActiveForm} buttonText='Add new actor' />
+              <Form formInitialValues={{
+                name:'',
+                occupation:'',
+                hobbies: [],
+                description: ''
+              }}
+              buttonText='Add new actor'
+              closeModal={setActiveForm}>
+                <div className='name-occupation'>
+                <FormInput label="Name" name="name" />
+                <FormInput label="Occupation besides acting" name="occupation" />
+                </div>
+                <FormInput label="Hobbies" name="hobbies" />
+                <div className='textarea'>
+                <FormInput label="Description" name="description" type='textarea' />
+                </div>
+              </Form> 
             }
             closeModal={setActiveForm}
           />

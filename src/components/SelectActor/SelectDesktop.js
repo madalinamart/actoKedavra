@@ -9,10 +9,9 @@ const SelectDesktop = ({
   setActiveSelectDesktop,
   showCheckbox,
   setShowCheckbox,
-  actors,
+  length,
   selected,
   deleteActor,
-  setSelected,
   handleCheck,
   isChecked
 }) => {
@@ -44,7 +43,7 @@ const SelectDesktop = ({
             <div className='selected-actors'>
               <p>
                 {' '}
-                {actors.length === selected.length
+                {length === selected.length
                   ? 'All Selected'
                   : `${selected.length} Selected`}
               </p>
@@ -53,11 +52,9 @@ const SelectDesktop = ({
               <p>Select all</p>
               <CheckBox
                 showCheckbox={showCheckbox}
-                actors={actors}
-                setSelected={setSelected}
-                selected={selected}
                 isChecked={isChecked}
                 handleCheck={handleCheck}
+                name='select-all'
               />
             </div>
           </div>

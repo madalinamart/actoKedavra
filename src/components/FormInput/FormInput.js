@@ -1,0 +1,47 @@
+import './FormInput.css';
+import { useContext } from 'react';
+import { FormContext } from '../Form/Form';
+
+const FormInput = (props) => {
+  const {
+    label,
+    type = 'text',
+    name,
+  } = props;
+  const formContext = useContext(FormContext);
+  const { form, handleFormChange, handleDescription, isSubmitted, remainingWords, isDisabled, handleHobbies } = formContext;
+
+  return (
+    <div className='inputs'>
+      <label>{label}</label>
+      {type === 'textarea' ? (
+        <>
+          <textarea
+            name='description'
+            value={form[name]}
+            onChange={handleDescription}
+            rows='5'
+            cols='50'
+            disabled={isDisabled}
+            className={isSubmitted && form[name].length === 0 ? 'error' : null}
+          ></textarea>
+          <span id='remaining'>{remainingWords} characters remaining</span>
+          {isSubmitted &&  form[name].length === 0 && <span className='message'>Field required</span>}
+        </>
+      ) : (
+        <>
+          <input
+            type={type}
+            name={name}
+            value={form[name]}
+            onChange={name === 'hobbies' ? handleHobbies : handleFormChange}
+            className={isSubmitted && form[name].length === 0 ? 'error' : null}
+          />
+          {isSubmitted &&  form[name].length === 0 && <span className='message'>Field required</span>}
+        </>
+      )}
+    </div>
+  );
+};
+
+export default FormInput;
