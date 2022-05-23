@@ -2,7 +2,8 @@ import React from 'react';
 import Button from '../Button/Button';
 import './Modal.css';
 
-const Modal = ({ closeModal, title, component, bottom, top }) => {
+const Modal = ({closeModal, title, component, bottom, top }) => {
+
   return (
     <div
       className='modal-wrapper'

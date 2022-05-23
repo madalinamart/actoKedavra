@@ -1,6 +1,6 @@
 .modal-wrapper {
   background-color: #fff;
-  padding: 56px 20px 32px 20px;
+  padding: 0px 20px;
   width: 100vw;
   position: fixed;
   left: 0;
@@ -10,14 +10,14 @@
   z-index: 999;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center;  
 }
 
 .modal-wrapper .modal-container {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  width: 100%;
+  width: 100%;  
 }
 
 .modal-wrapper .modal-container .body {
