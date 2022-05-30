@@ -219,7 +219,7 @@ const StyleguidePage = () => {
           variant='primary'
           text='Add new actor'
           disabled={actors.length >= 7 || activeSelectDesktop ? true : false}
-          padding='16px 106px'
+          padding='16px 80px'
           action={setActiveForm}
         />
         {activeForm && (
@@ -235,14 +235,12 @@ const StyleguidePage = () => {
                     name='occupation'
                   />
                 </div>
-                <FormInput label='Hobbies' name='hobbies' />
-                <div className='textarea'>
+                <FormInput label='Hobbies' name='hobbies' />                
                   <FormInput
                     label='Description'
                     name='description'
                     type='textarea'
-                  />
-                </div>
+                  />               
               </Form>
             }
             closeModal={setActiveForm}

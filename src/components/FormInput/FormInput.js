@@ -1,4 +1,3 @@
-import './FormInput.css';
 import { useContext } from 'react';
 import { FormContext } from '../Form/Form';
 import PropTypes from 'prop-types'
@@ -16,7 +15,7 @@ const FormInput = (props) => {
     <div className='inputs'>
       <label>{label}</label>
       {type === 'textarea' ? (
-        <>
+        <div className='textarea'>
           <textarea
             name='description'
             value={form[name]}
@@ -26,9 +25,9 @@ const FormInput = (props) => {
             disabled={isDisabled}
             className={isSubmitted && form[name].length === 0 ? 'error' : null}
           ></textarea>
-          <span id='remaining'>{remainingWords} characters remaining</span>
+          <span className={`remaining ${isSubmitted && form[name].length === 0 ? 'error' : null}`}>{remainingWords} characters remaining</span>
           {isSubmitted &&  form[name].length === 0 && <span className='message'>Field required</span>}
-        </>
+        </div>
       ) : (
         <>
           <input
