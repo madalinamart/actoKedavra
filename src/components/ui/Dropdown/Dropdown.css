@@ -1,0 +1,23 @@
+.dropdown li, .dropdown button {
+    background-color: #ffffff;
+    border-radius: 6px;
+    margin-top: 0.25em;
+    color: #4e4b66;
+    font-weight: 300;
+    padding: .25em;
+    font-size: .75em;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dropdown li img, .dropdown button img {
+    display: block;
+    max-width: 25px;
+}
+
+.dropdown li img {
+    transform: rotate(180deg);
+}

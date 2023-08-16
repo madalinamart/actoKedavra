@@ -1,0 +1,18 @@
+span {
+    background-color: #E5EBFE;
+    padding: 5px 8px;
+    border-radius: 8px;
+    text-align: center;
+    color: #032596;
+    font-size: 9px;
+    font-weight: 500;
+    margin: 1em;
+    margin-left: 0;
+    text-transform: capitalize;
+}
+
+@media screen and (min-width: 767px) {
+    .hobbies span {
+        font-size: .8rem;
+    }
+}

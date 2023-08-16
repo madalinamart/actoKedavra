@@ -1,0 +1,21 @@
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;  
+    width: 100%;
+    height: 2.5rem;
+    border-top: 1px solid #D9DBE9;
+    background-color: #ffffff;
+    margin-top: auto;
+}
+
+footer .logo {
+    font-weight: 700;
+    line-height: 1.2;
+    padding-right: 1em;
+}
+
+footer .date {
+    padding-left: 1em;
+}

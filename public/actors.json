@@ -1,0 +1,19 @@
+[
+    {
+      "name": "Leonardo Dicaprio",
+      "occupation": "Actor & Writer",
+      "picture" : "img/freeman.png",
+      "score": 10,
+      "hobbies": ["Music", "Dancing"],
+      "description": "He is a good guy with a thick mustache"
+    },
+    {
+      "name": "Meryl Streep",
+      "occupation": "Actress",
+      "picture": "img/freeman.png",  
+      "score": 9,
+      "hobbies": ["Reading", "Cooking"],
+      "description": "She is a versatile actress with numerous awards"
+    }
+  ]
+  

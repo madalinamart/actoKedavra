@@ -1,0 +1,22 @@
+.description {
+    color: #6e7191;
+    font-size: .75rem;
+    line-height: 1.2;
+    font-weight: 300;
+    margin-top: 1em;
+    margin-bottom: 0.3em;
+}
+
+.description-container span {
+    color: #F4B740;
+    background-color: transparent;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 0;
+}
+
+@media screen and (min-width: 767px) {
+    .description-container span {
+        font-size: .8rem;
+    }
+}

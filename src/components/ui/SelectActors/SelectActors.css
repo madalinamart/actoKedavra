@@ -1,0 +1,19 @@
+.select-container .checkbox-wrapper {
+    margin-bottom: 1em;
+}
+
+button.secondary.reverse-img {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+button.secondary.reverse-img img {
+    margin-right: 1em;
+}
+
+@media screen and (min-width: 767px) {
+    .select-container {
+        margin: 0 7em;
+    }
+}
+

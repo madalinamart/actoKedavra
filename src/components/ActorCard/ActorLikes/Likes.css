@@ -1,0 +1,22 @@
+.general {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.occupation {
+    color: #4e4b66;
+    font-weight: 300;
+    font-size: 0.75rem;
+    line-height: 1.2;
+}
+
+.likes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #F4B740;
+    font-weight: 600;
+    gap: .45em;
+}
